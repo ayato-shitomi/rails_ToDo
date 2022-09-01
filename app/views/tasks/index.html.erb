@@ -1,0 +1,30 @@
+<%= render 'shared/header' %>
+
+<div id="idArea">
+	<div id="classTitleButton">
+		<div class="classTitle">ToDoリスト</div>
+		<%= link_to 'タスク追加', new_task_path %>
+	</div>
+
+	<table>
+		<thead>
+			<tr>
+				<th width=10%>Date</th>
+				<th>ToDO</th>
+				<th colspan="2" width="30%">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @tasks.each do |task| %>
+			<tr>
+				<td style="word-break:break-word">2020/11/24</td>
+				<td style="word-break:break-word"><%= task.title %></td>
+				<td align="right" class="classClickToSomething"><%= link_to "📝", edit_task_path(task) %></td>
+				<td class="classClickToSomething"><%= link_to "💪 / 🗑", task_path(task), method: :delete %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<%= render 'shared/footer' %>

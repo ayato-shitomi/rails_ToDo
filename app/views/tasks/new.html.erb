@@ -1,0 +1,37 @@
+<%= render 'shared/header' %>
+
+
+<div id="idArea">
+
+	<div class="classTitle">タスク追加</div>
+
+	<div id="idFormArea">
+		<%= form_for @tasks do |f| %>
+			<table>
+				<tr id="idTaskInput">
+					<td><div>タスクを入力</div></td>
+					<td><div><%= f.text_field :title %></div></td>
+				</tr>
+				<tr id="idTaskInput">
+					<td><div>タスクの期日を入力</div></td>
+					<td><input></td>
+				</tr>
+				<tr id="idRadioBotton">
+					<td><div>重要度</div></td>
+					<td align="left">
+						<div><input name="priority" type="radio" value="">⚠️</div>
+						<div><input name="priority" type="radio" value="" checked>✅</div>
+						<div><input name="priority" type="radio" value="">💩</div>
+					</td>
+				</tr>
+			</table>
+			<div><%= f.submit "タスクを保存する"%></div>
+		<% end %>
+	</div>
+
+	<div id="classTitleButton">
+		<%= link_to '保存せずに戻る', tasks_path %>
+	</div>
+</div>
+
+<%= render 'shared/footer' %>
